@@ -1,0 +1,25 @@
+# --- GameMaker IDE Cache & Temp Files ---
+.yy/
+.win/
+bin/
+cache/
+runner/
+html5game/
+options/main/inherited/
+
+# --- Local User Settings (Do not share) ---
+local_settings.json
+config.json
+
+# --- OS Generated Files ---
+.DS_Store
+Thumbs.db
+
+# --- Exported Game Builds ---
+*.exe
+*.msi
+*.zip
+*.app
+*.apk
+*.dmg
+*.pkg

@@ -1,2 +1,17 @@
-# Auto detect text files and perform LF normalization
+# Handle line endings automatically
 * text=auto
+
+# Force GameMaker JSON files to use CRLF line endings (standard for GM)
+*.yy text eol=crlf
+*.yyp text eol=crlf
+
+# Treat visual assets and audio as binary files (prevents corruption)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ogg binary
+*.wav binary
+*.mp3 binary
+*.ttf binary
+*.woff binary
