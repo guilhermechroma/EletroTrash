@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Recicla Tech Game",
-    "path":"Recicla Tech Game.yyp",
+    "name":"EletroTrash",
+    "path":"EletroTrash.yyp",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -1,6 +1,6 @@
 {
   "$GMProject":"v1",
-  "%Name":"Recicla Tech Game",
+  "%Name":"EletroTrash",
   "AudioGroups":[
     {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
@@ -31,9 +31,9 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.4.222",
+    "IDEVersion":"2026.0.0.16",
   },
-  "name":"Recicla Tech Game",
+  "name":"EletroTrash",
   "resources":[
     {"id":{"name":"fnt_gui_extra_large","path":"fonts/fnt_gui_extra_large/fnt_gui_extra_large.yy",},},
     {"id":{"name":"fnt_gui_large","path":"fonts/fnt_gui_large/fnt_gui_large.yy",},},
