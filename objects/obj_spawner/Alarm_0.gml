@@ -4,7 +4,7 @@
 if counter == 0
 {
 	// Define uma posição horizontal aleatória para o item ser criado
-	var _x_pos = random_range(50, room_width - 50);
+	var _x_pos = random_range(margin, room_width - margin);
 
 	// Cria o primeiro item "bom" para o tutorial
 	item = obj_good_item;
@@ -27,7 +27,7 @@ if counter == 0
 else if counter > 0
 {
 	// Repete o mesmo, agora com um novo item ruim
-	var _x_pos = random_range(50, room_width - 50);
+	var _x_pos = random_range(margin, room_width - margin);
 
 	item = obj_bad_item;
 

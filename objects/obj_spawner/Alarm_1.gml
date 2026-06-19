@@ -1,7 +1,7 @@
 /// @description CICLO REAL DO JOGO
 
 // Define uma posição horizontal aleatória para o item ser criado
-var _x_pos = random_range(50, room_width - 50);
+var _x_pos = random_range(margin, room_width - margin);
 
 // Escolhe um dos itens para ser criado
 var _item_chance = random_range(0, 3)

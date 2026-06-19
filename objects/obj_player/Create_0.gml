@@ -2,33 +2,36 @@
 // CONFIGURAÇÕES VISUAIS
 // ==========================================
 
-// Salva a altura (Y) exata onde o jogador nasceu para a sombra não subir
-y_da_sombra = y;
+// Salvamos desde o início o Y do objeto, para manter o Y do mascote fixo
+y_fixo = y;
 
 // Pega a altura atual do sprite em alta resolução
-var _altura_original = sprite_get_height(sprite_index);
+var _original_height = sprite_get_height(sprite_index);
 
 // Calcula qual deve ser o multiplicador para a altura chegar a X pixels
-var _escala = 150 / _altura_original;
+var _scale = 150 / _original_height;
 
 // Aplica essa escala tanto no visual quanto na colisão
-image_xscale = _escala;
-image_yscale = _escala;
+image_xscale = _scale;
+image_yscale = _scale;
+
+// Controla quantos frames o jogador ficará piscando em vermelho após o dano
+flash_timer = 0;
 
 // ==========================================
 // CONFIGURAÇÕES DO MASCOTE
 // ==========================================
 
 // Escala do mascote (2 = dobro do tamanho, 3 = triplo, etc)
-mascot_escala = 2.5;
+mascot_scale = 2.5;
 
 // Posição do mascote em relação ao jogador
 mascot_overlap_x = -200; 
 mascot_overlap_y = -100;
 
 // Variáveis de controle da animação
-mascot_sprite_atual = spr_mascot_5;
-mascot_animando = false;
+mascot_current_sprite = spr_mascot_5;
+mascot_animation = false;
 mascot_frame = 0;
 mascot_timer = 0;
 mascot_anim_speed = 5; // Velocidade da animação (quanto menor, mais rápido ele troca de sprite)
@@ -60,3 +63,11 @@ move_y = 0;
 // Variáveis de vida e pontuação do jogador
 global.hearts = 3;
 global.player_score = 0;
+
+// ==========================================
+// SISTEMA DE TUTORIAL INICIAL
+// ==========================================
+
+// Multiplica os frames por 5 para ter exatamente 5 segundos
+tutorial_timer = game_get_speed(gamespeed_fps) * 5; 
+tutorial_alpha = 1; // 1 = totalmente visível, 0 = invisível

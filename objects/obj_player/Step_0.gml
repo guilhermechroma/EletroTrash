@@ -1,3 +1,6 @@
+// ==========================================
+// JOGABILIDADE DO JOGADOR
+// ==========================================
 // TECLAS
 var _left = keyboard_check(vk_left) or keyboard_check(ord("A"));
 var _right = keyboard_check(vk_right) or keyboard_check(ord("D"));
@@ -16,7 +19,7 @@ if place_meeting(x, y + 2, obj_floor)
         move_y = -jump_speed;
         
         // === GATILHO DA ANIMAÇÃO DO MASCOTE ===
-        mascot_animando = true;
+        mascot_animation = true;
         mascot_frame = 0;
         mascot_timer = 0;
     }
@@ -33,9 +36,15 @@ move_and_collide(move_x, 0, obj_floor);
 move_and_collide(0, move_y, obj_floor);
 
 // ==========================================
+// LÓGICA VISUAL DO JOGADOR
+// ==========================================
+// Reduz o tempo do efeito vermelho de dano
+if (flash_timer > 0) flash_timer -= 1;
+
+// ==========================================
 // LÓGICA DE ANIMAÇÃO DO MASCOTE
 // ==========================================
-if (mascot_animando == true)
+if (mascot_animation == true)
 {
     // O cronômetro roda a cada frame
     mascot_timer += 1;
@@ -49,20 +58,35 @@ if (mascot_animando == true)
         // Verifica se a animação chegou ao fim da lista
         if (mascot_frame >= array_length(mascot_sequencia))
         {
-            mascot_animando = false;
-            mascot_sprite_atual = spr_mascot_5; // Garante que volte ao padrão
+            mascot_animation = false;
+            mascot_current_sprite = spr_mascot_5; // Garante que volte ao padrão
         }
         else
         {
             // Atualiza o visual para o sprite atual da sequência
-            mascot_sprite_atual = mascot_sequencia[mascot_frame];
+            mascot_current_sprite = mascot_sequencia[mascot_frame];
         }
     }
 }
 else
 {
     // Se não estiver animando o pulo, mantém o sprite padrão
-    mascot_sprite_atual = spr_mascot_5;
+    mascot_current_sprite = spr_mascot_5;
+}
+
+// ==========================================
+// CONTAGEM REGRESSIVA DO TUTORIAL
+// ==========================================
+if (tutorial_timer > 0)
+{
+    tutorial_timer -= 1;
+    
+    // Ativa o fade out quando faltar 1 segundo (60 frames)
+    var _um_segundo = game_get_speed(gamespeed_fps);
+    if (tutorial_timer <= _um_segundo)
+    {
+        tutorial_alpha = tutorial_timer / _um_segundo;
+    }
 }
 
 // CONDIÇÃO DE DERROTA (GAME OVER)

@@ -15,29 +15,29 @@ for (var i = 0; i < _length; i++)
 // ==========================================
 
 // Define qual cor será usada
-var _cor_contorno = c_white; 
+var _outline_color = c_white; 
 
 if (is_tutorial == true) 
 {
-    _cor_contorno = tutorial_color;
+    _outline_color = tutorial_color;
 } 
 else 
 {
-    if (object_index == obj_good_item) _cor_contorno = c_lime;
-    else if (object_index == obj_bad_item) _cor_contorno = c_red;
+    if (object_index == obj_good_item) _outline_color = c_lime;
+    else if (object_index == obj_bad_item) _outline_color = c_red;
 }
 
-var _espessura = 5; 
+var _thickness = 5; 
 
 // LIGA O FOG (NEBLINA):
 // Isso força TUDO que for desenhado a partir de agora a ser uma silhueta sólida da cor escolhida
-gpu_set_fog(true, _cor_contorno, 0, 0);
+gpu_set_fog(true, _outline_color, 0, 0);
 
 // Desenha as 4 posições do contorno (a cor aqui não importa por conta da cor já definida no fog)
-draw_sprite_ext(sprite_index, image_index, x + _espessura, y, image_xscale, image_yscale, image_angle, c_white, 1); // Direita
-draw_sprite_ext(sprite_index, image_index, x - _espessura, y, image_xscale, image_yscale, image_angle, c_white, 1); // Esquerda
-draw_sprite_ext(sprite_index, image_index, x, y + _espessura, image_xscale, image_yscale, image_angle, c_white, 1); // Baixo
-draw_sprite_ext(sprite_index, image_index, x, y - _espessura, image_xscale, image_yscale, image_angle, c_white, 1); // Cima
+draw_sprite_ext(sprite_index, image_index, x + _thickness, y, image_xscale, image_yscale, image_angle, c_white, 1); // Direita
+draw_sprite_ext(sprite_index, image_index, x - _thickness, y, image_xscale, image_yscale, image_angle, c_white, 1); // Esquerda
+draw_sprite_ext(sprite_index, image_index, x, y + _thickness, image_xscale, image_yscale, image_angle, c_white, 1); // Baixo
+draw_sprite_ext(sprite_index, image_index, x, y - _thickness, image_xscale, image_yscale, image_angle, c_white, 1); // Cima
 
 // DESLIGA O FOG
 gpu_set_fog(false, c_white, 0, 0);
@@ -58,7 +58,7 @@ if (is_tutorial == true)
     
 	// Define a cor e fonte da "sombra"
 	draw_set_color(c_black);
-	draw_set_font(fnt_gui_medium)
+	draw_set_font(fnt_gui_large)
 	
 	// Desenha o texto um pouco abaixo de onde o texto principal vai vir
     draw_text(x, y - 48, tutorial_text);
