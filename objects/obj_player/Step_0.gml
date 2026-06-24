@@ -17,7 +17,10 @@ if place_meeting(x, y + 2, obj_floor)
     if (_jump)
     {
         move_y = -jump_speed;
-        
+		
+		// Toca o áudio de pulo com um tom aleatório (para evitar repetitividade)
+		audio_play_sound(choose(snd_jump_1, snd_jump_2), 0, false, 0.8, 0, random_range(0.8, 1.2));
+		
         // === GATILHO DA ANIMAÇÃO DO MASCOTE ===
         mascot_animation = true;
         mascot_frame = 0;

@@ -1,4 +1,4 @@
 // Inherit the parent event
 event_inherited();
 
-save_game()
+room_goto(rm_menu);

@@ -8,3 +8,8 @@ limit = 15;
 cursor = "|";
 delay = 20;
 alarm[0] = delay;
+
+
+flashing_red = false;  
+flash_timer = 0;       
+flash_duration = 60;

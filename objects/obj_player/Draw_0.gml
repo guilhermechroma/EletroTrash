@@ -3,17 +3,16 @@
 // ==========================================
 var _thickness = 5; // Espessura do contorno em pixels
 
-// 1. LIGA O FOG para forçar a cor branca sólida na silhueta do player
+// Liga o fog para forçar a cor branca sólida na silhueta do player
 gpu_set_fog(true, c_white, 0, 0);
 
-// 2. Desenha o sprite do jogador deslocado nas 4 direções principais
-// Usamos as variáveis nativas (image_xscale, image_angle, etc.) para o contorno acompanhar o tamanho e rotação exata do player
+// Desenha o sprite do jogador deslocado nas 4 direções principais
 draw_sprite_ext(sprite_index, image_index, x + _thickness, y, image_xscale, image_yscale, image_angle, c_white, 1); // Direita
 draw_sprite_ext(sprite_index, image_index, x - _thickness, y, image_xscale, image_yscale, image_angle, c_white, 1); // Esquerda
 draw_sprite_ext(sprite_index, image_index, x, y + _thickness, image_xscale, image_yscale, image_angle, c_white, 1); // Baixo
 draw_sprite_ext(sprite_index, image_index, x, y - _thickness, image_xscale, image_yscale, image_angle, c_white, 1); // Cima
 
-// 3. DESLIGA O FOG imediatamente para que o mascote e o player normal não fiquem brancos
+// Desliga o fog imediatamente para que o mascote e o player normal não fiquem brancos
 gpu_set_fog(false, c_white, 0, 0);
 
 
