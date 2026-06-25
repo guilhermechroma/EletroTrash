@@ -7,7 +7,7 @@ draw_set_valign(fa_middle);
 // Relógio do jogo para criar a animação contínua
 var _tempo = current_time / 250; 
 // Pulso de transparência para o brilho neon
-var _brilho_alfa = 0.5 + (sin(_tempo) * 0.1); 
+var _brilho_alfa = 0.2 + (sin(_tempo) * 0.1); 
 
 
 // ==========================================
@@ -25,7 +25,8 @@ var _escala_titulo = 1 + (sin(_tempo * 1.5) * 0.008);
 
 // Sombra do Título
 draw_set_color(c_black);
-draw_text_transformed(room_width / 2 + 3, _titulo_y + 3, _titulo_str, _escala_titulo, _escala_titulo, 0);
+draw_set_alpha(0.7);
+draw_text_transformed(room_width / 2 + 4, _titulo_y + 4, _titulo_str, _escala_titulo, _escala_titulo, 0);
 
 // Brilho Neon Verde para combinar com o tema Electro Trash
 gpu_set_blendmode(bm_add);
@@ -90,8 +91,8 @@ for (var i = 0; i < array_length(leaderboard_data); i++)
 
     // Desenha a sombra do texto
     draw_set_colour(c_black);
-    draw_set_alpha(0.8);
-    draw_text(_x_atual + 3, _y_atual + 3, _str);
+    draw_set_alpha(0.7);
+    draw_text(_x_atual + 4, _y_atual + 4, _str);
     
     // Desenha o Brilho Neon ao redor do texto
     gpu_set_blendmode(bm_add);

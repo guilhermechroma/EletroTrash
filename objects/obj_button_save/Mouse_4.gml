@@ -14,9 +14,13 @@ if (string_trim(global.player_name) == "" && clicked != true)
         flash_timer = flash_duration; 
     }
 	
-	// Reaproveita o áudio de pegar item ruim para indicar erro
-	audio_play_sound(snd_bad_catch, 0, false);
-    
+	// Roda apenas se os efeitos sonoros estiverem ligados
+	if global.sfx_on
+	{
+		// Reaproveita o áudio de pegar item ruim para indicar erro
+		audio_play_sound(snd_bad_catch, 0, false);
+	}
+	
     // Sai do evento antes de salvar
     exit; 
 }
@@ -41,7 +45,11 @@ if flashing_red != true
 
 	// Troca a global de "estar no menu" para limpar o nome no input box
 	global.in_menu = true;
-
-	// Reaproveita o áudio de pulo para indicar clique efetivo
-	audio_play_sound(snd_jump_1, 0, false, 0.6, 0);
+	
+	// Roda apenas se os efeitos sonoros estiverem ligados
+	if global.sfx_on
+	{
+		// Reaproveita o áudio de pulo para indicar clique efetivo
+		audio_play_sound(snd_jump_1, 0, false, 0.6, 0);
+	}
 }

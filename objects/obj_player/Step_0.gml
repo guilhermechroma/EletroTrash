@@ -18,8 +18,12 @@ if place_meeting(x, y + 2, obj_floor)
     {
         move_y = -jump_speed;
 		
-		// Toca o áudio de pulo com um tom aleatório (para evitar repetitividade)
-		audio_play_sound(choose(snd_jump_1, snd_jump_2), 0, false, 0.8, 0, random_range(0.8, 1.2));
+		// Roda apenas se os efeitos sonoros estiverem ligados
+		if global.sfx_on
+		{
+			// Toca o áudio de pulo com um tom aleatório (para evitar repetitividade)
+			audio_play_sound(choose(snd_jump_1, snd_jump_2), 0, false, 0.8, 0, random_range(0.8, 1.2));
+		}
 		
         // === GATILHO DA ANIMAÇÃO DO MASCOTE ===
         mascot_animation = true;
